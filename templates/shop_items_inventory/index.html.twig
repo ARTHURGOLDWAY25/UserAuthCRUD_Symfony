@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ShopItemsInventory index{% endblock %}
+
+{% block stylesheets %}
+     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+
+<style>
+    body{
+        margin:0;
+        padding:0;
+        font-family: "Playfair Display", serif;
+        background:#2b3f47;
+        color:#fff;
+    }
+
+    a{
+        color:white;
+        font-weight:700;
+        text-transform:uppercase;
+        margin:5px;
+        text-decoration:none;
+    }
+</style>
+    <h1>ShopItemsInventory index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Category</th>
+                <th>CreatedAt</th>
+                <th>UpdatedAt</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for shop_items_inventory in shop_items_inventories %}
+            <tr>
+                <td>{{ shop_items_inventory.id }}</td>
+                <td>{{ shop_items_inventory.name }}</td>
+                <td>{{ shop_items_inventory.description }}</td>
+                <td>{{ shop_items_inventory.price }}</td>
+                <td>{{ shop_items_inventory.quantity }}</td>
+                <td>{{ shop_items_inventory.category }}</td>
+                <td>{{ shop_items_inventory.createdAt ? shop_items_inventory.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ shop_items_inventory.updatedAt ? shop_items_inventory.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_shop_items_inventory_show', {'id': shop_items_inventory.id}) }}">show</a>
+                    <a href="{{ path('app_shop_items_inventory_edit', {'id': shop_items_inventory.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_shop_items_inventory_new') }}">Create new</a>
+    <a href="{{ path('app_login') }}">Log out</a>
+{% endblock %}

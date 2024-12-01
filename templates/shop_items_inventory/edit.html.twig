@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit ShopItemsInventory{% endblock %}
+
+{% block stylesheets %}
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+
+<style>
+ .btn{
+        padding:10px 30px;
+        margin-top:10px;
+        margin-left:10px;
+        background:#BF9000;
+        cursor:pointer;
+        color:#fff;
+        font-family: "Playfair Display", serif;
+        font-size:1em;
+        border:none;
+        transition: background 0.5s ease;
+
+        &:hover{
+            background:#ffc30d;
+        }
+
+    }
+
+    a{
+        text-decoration:none;
+    }
+</style>
+    <h1>Edit ShopItemsInventory</h1>
+
+    {{ include('shop_items_inventory/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_shop_items_inventory_index') }}" class="btn">Back to list</a>
+
+    {{ include('shop_items_inventory/_delete_form.html.twig') }}
+{% endblock %}

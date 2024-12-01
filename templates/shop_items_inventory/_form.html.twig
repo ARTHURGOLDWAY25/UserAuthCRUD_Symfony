@@ -1,0 +1,94 @@
+{# {{ form_start(form) }} 
+    {{ form_widget(form) }}
+    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }} #}
+
+{{ form_start(form) }}
+
+    <div class="form-section">
+         {{ form_label(form.name, 'Name', {'attr': {'class': 'form-label'}}) }}
+        {{ form_widget(form.name, {'attr': {'class': 'form-input'}}) }}
+        {{ form_errors(form.name) }}
+    </div>
+
+    <div class="form-section">
+        <label class="form-label">{{ form_label(form.description, 'Description') }}</label>
+        {{ form_widget(form.description, {'attr': {'class': 'form-input'}}) }}
+        {{ form_errors(form.description) }}
+    </div>
+
+    <div class="form-section">
+        <label class="form-label">{{ form_label(form.price, 'Price') }}</label>
+        {{ form_widget(form.price, {'attr': {'class': 'form-input'}}) }}
+        {{ form_errors(form.price) }}
+    </div>
+
+    <div class="form-section">
+        <label class="form-label">{{ form_label(form.quantity, 'Quantity') }}</label>
+        {{ form_widget(form.quantity, {'attr': {'class': 'form-input'}}) }}
+        {{ form_errors(form.quantity) }}
+    </div>
+
+    <div class="form-section">
+        <label class="form-label">{{ form_label(form.category, 'Category') }}</label>
+        {{ form_widget(form.category, {'attr': {'class': 'form-input'}}) }}
+        {{ form_errors(form.category) }}
+    </div>
+
+    <div class="form-section">
+        <label class="form-label">{{ form_label(form.createdAt, 'Created at') }}</label>
+        {{ form_widget(form.createdAt, {'attr': {'class': 'form-input'}}) }}
+        {{ form_errors(form.createdAt) }}
+    </div>
+
+    <div class="form-section">
+        <label class="form-label">{{ form_label(form.updatedAt, 'Updated at') }}</label>
+        {{ form_widget(form.updatedAt, {'attr': {'class': 'form-input'}}) }}
+        {{ form_errors(form.updatedAt) }}
+    </div>
+
+    <button class="btn">{{ button_label|default('Save') }}</button>
+
+{{ form_end(form) }}
+
+{% block stylesheets %}
+     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+{% endblock %}
+
+<style>
+.btn{
+    padding: 10px 30px;
+    margin-top:10px;
+    cursor:pointer;
+    background:#BF9000;
+    color:#fff;
+    font-family: "Playfair Display", serif;
+    font-size:1em;
+    border:none;
+    transition: background 0.5s ease;
+    margin-bottom:30px;
+
+    &:hover{
+        background:#ffc30d;
+    }
+}
+
+label{
+    text-transform:uppercase;
+}
+
+.form-section{
+    display:flex;
+    justify-content:space-between;
+    width:300px;
+}
+
+.form-input{
+    margin-bottom:5px;
+    padding:3px;
+    
+}
+
+</style>
+
+

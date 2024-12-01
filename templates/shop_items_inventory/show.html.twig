@@ -1,0 +1,100 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ShopItemsInventory{% endblock %}
+
+{% block stylesheets %}
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+
+<style>
+ .btn{
+        padding:10px 30px;
+        margin-top:10px;
+        background:#BF9000;
+        cursor:pointer;
+        color:#fff;
+        font-family: "Playfair Display", serif;
+        font-size:1em;
+        border:none;
+        transition: background 0.5s ease;
+
+        &:hover{
+            background:#ffc30d;
+        }
+
+    }
+
+a{
+    text-decoration:none;
+}
+
+.table{
+    text-align:left;
+}
+
+.wrapper{
+    background:orange;
+    display:grid;
+    width:40%
+   
+}
+
+tr{
+    background:green;
+    grid-template-rows: 1fr 
+    
+}
+td{
+    text-align:center;
+}
+</style>
+    <h1>ShopItemsInventory</h1>
+
+<div class="wrapper">
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th> 
+                <td>{{ shop_items_inventory.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ shop_items_inventory.name }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ shop_items_inventory.description }}</td>
+            </tr>
+            <tr>
+                <th>Price</th>
+                <td>{{ shop_items_inventory.price }}</td>
+            </tr>
+            <tr>
+                <th>Quantity</th>
+                <td>{{ shop_items_inventory.quantity }}</td>
+            </tr>
+            <tr>
+                <th>Category</th>
+                <td>{{ shop_items_inventory.category }}</td>
+            </tr>
+            <tr>
+                <th>CreatedAt</th>
+                <td>{{ shop_items_inventory.createdAt ? shop_items_inventory.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>UpdatedAt</th>
+                <td>{{ shop_items_inventory.updatedAt ? shop_items_inventory.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table> 
+    </div>
+    <br>
+
+    <a href="{{ path('app_shop_items_inventory_index') }}" class="btn btn-primary">Back to list</a> 
+
+    <a href="{{ path('app_shop_items_inventory_edit', {'id': shop_items_inventory.id}) }}" class="btn btn-edit">Edit</a> 
+
+    {{ include('shop_items_inventory/_delete_form.html.twig') }}
+{% endblock %}
